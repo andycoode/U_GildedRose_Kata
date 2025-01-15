@@ -28,6 +28,7 @@ namespace GildedRoseKata
                 }
                 
               
+                //BACKSTAGE LOGIC ALL HERE!
                 if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     if (item.Quality < 50) item.Quality += 1;
@@ -35,11 +36,15 @@ namespace GildedRoseKata
                     if (item.SellIn < 11 && item.Quality < 50)  item.Quality += 1;
                     
                     if (item.SellIn < 6 && item.Quality < 50) item.Quality += 1;
-                    
+
+                    item.SellIn -= 1;
+
+                    if (item.SellIn < 0) item.Quality = 0;
+
                 }
                 
 
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                if (item.Name != "Sulfuras, Hand of Ragnaros" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
                     item.SellIn -= 1;
                 }
@@ -55,10 +60,6 @@ namespace GildedRoseKata
                                 item.Quality -= 1;
                             }
 
-                        }
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            item.Quality = 0;
                         }
                     }
 
