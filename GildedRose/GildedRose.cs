@@ -26,10 +26,12 @@ namespace GildedRoseKata
                     case "Sulfuras, Hand of Ragnaros":
                         Sulfuras(item);
                         break;
+                    case "Conjured Mana Cake":
+                        Conjured(item);
+                        break;
                     default:
                         OtherItems(item);
                         break;
-
                 }
 
             }
@@ -83,6 +85,12 @@ namespace GildedRoseKata
             {
                 item.Quality -= 1;
             }
+        }
+
+        private void Conjured(Item item)
+        {
+            item.Quality -= 2;
+            item.SellIn -= 1;
         }
     }
 }

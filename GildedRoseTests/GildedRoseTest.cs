@@ -114,11 +114,7 @@ namespace GildedRoseTests
             AssertResults(items, expectedName, expectedSellIn, expectedQuality);
         }
 
-        /*
-         * Test can't be run yet. When it is ready, remove the Skip.
-         * Also need to ensure update the ThirtyDays.verified.txt, as it only degrades by 1 on there, should be 2.
-         */
-        [Fact(Skip = "The UpdateQuality method does not currently handle Conjured items.")]
+        [Fact]
         public void Conjured_Degrades_Twice_As_Fast_As_Normal_Item()
         {
             //Arrange
