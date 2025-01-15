@@ -64,7 +64,8 @@ namespace GildedRoseKata
                             item.Quality = 0;
                         }
                     }
-                    else if (item.Quality < 50)
+
+                    if (item.Name == "Aged Brie" && item.Quality < 50)
                     {
                         item.Quality += 1;
                     }
