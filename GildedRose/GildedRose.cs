@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GildedRoseKata.Items;
 
 namespace GildedRoseKata
 {
@@ -27,7 +28,7 @@ namespace GildedRoseKata
                         Sulfuras(item);
                         break;
                     case "Conjured Mana Cake":
-                        Conjured(item);
+                        _ = new Conjured(item);
                         break;
                     default:
                         OtherItems(item);
@@ -85,12 +86,6 @@ namespace GildedRoseKata
             {
                 item.Quality -= 1;
             }
-        }
-
-        private void Conjured(Item item)
-        {
-            item.Quality -= 2;
-            item.SellIn -= 1;
         }
     }
 }
