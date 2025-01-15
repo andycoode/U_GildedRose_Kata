@@ -14,14 +14,11 @@ namespace GildedRoseKata
         {
             foreach (var item in _items)
             {
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        item.Quality -= 1;
-                    }
+                    item.Quality -= 1;
                 }
-
+                
                 if (item.Name == "Aged Brie" && item.Quality < 50)
                 {
                     item.Quality += 1;
@@ -31,16 +28,7 @@ namespace GildedRoseKata
                 //BACKSTAGE LOGIC ALL HERE!
                 if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.Quality < 50) item.Quality += 1;
-                
-                    if (item.SellIn < 11 && item.Quality < 50)  item.Quality += 1;
-                    
-                    if (item.SellIn < 6 && item.Quality < 50) item.Quality += 1;
-
-                    item.SellIn -= 1;
-
-                    if (item.SellIn < 0) item.Quality = 0;
-
+                    BackstagePasses(item);
                 }
                 
 
@@ -51,16 +39,9 @@ namespace GildedRoseKata
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                item.Quality -= 1;
-                            }
-
-                        }
+                        item.Quality -= 1;
                     }
 
                     if (item.Name == "Aged Brie" && item.Quality < 50)
@@ -69,6 +50,20 @@ namespace GildedRoseKata
                     }
                 }
             }
+        }
+
+
+        private void BackstagePasses(Item item)
+        {
+            if (item.Quality < 50) item.Quality += 1;
+
+            if (item.SellIn < 11 && item.Quality < 50) item.Quality += 1;
+
+            if (item.SellIn < 6 && item.Quality < 50) item.Quality += 1;
+
+            item.SellIn -= 1;
+
+            if (item.SellIn < 0) item.Quality = 0;
         }
     }
 }
