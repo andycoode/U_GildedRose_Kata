@@ -28,19 +28,13 @@ namespace GildedRoseKata
                 }
                 
               
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert" && item.Quality < 50)
+                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    item.Quality += 1;
+                    if (item.Quality < 50) item.Quality += 1;
                 
-                    if (item.SellIn < 11 && item.Quality < 50)
-                    {
-                        item.Quality += 1;
-                    }
+                    if (item.SellIn < 11 && item.Quality < 50)  item.Quality += 1;
                     
-                    if (item.SellIn < 6 && item.Quality < 50)
-                    {
-                        item.Quality += 1;
-                    }
+                    if (item.SellIn < 6 && item.Quality < 50) item.Quality += 1;
                     
                 }
                 
@@ -62,7 +56,7 @@ namespace GildedRoseKata
                             }
 
                         }
-                        else
+                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                         {
                             item.Quality = 0;
                         }
