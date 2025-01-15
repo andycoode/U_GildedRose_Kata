@@ -16,12 +16,9 @@ namespace GildedRoseKata
             {
                 if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (Items[i].Quality > 0)
+                    if (Items[i].Quality > 0 && Items[i].Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].Quality -= 1;
-                        }
+                        Items[i].Quality -= 1;
                     }
                 }
                 else
@@ -32,20 +29,14 @@ namespace GildedRoseKata
 
                         if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
                         {
-                            if (Items[i].SellIn < 11)
+                            if (Items[i].SellIn < 11 && Items[i].Quality < 50)
                             {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality += 1;
-                                }
+                                Items[i].Quality += 1;
                             }
-
-                            if (Items[i].SellIn < 6)
+                            
+                            if (Items[i].SellIn < 6 && Items[i].Quality < 50)
                             {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality += 1;
-                                }
+                                Items[i].Quality += 1;
                             }
                         }
                     }
@@ -62,25 +53,20 @@ namespace GildedRoseKata
                     {
                         if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
                         {
-                            if (Items[i].Quality > 0)
+                            if (Items[i].Quality > 0 && Items[i].Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].Quality -= 1;
-                                }
+                                Items[i].Quality -= 1;
                             }
+
                         }
                         else
                         {
                             Items[i].Quality = 0;
                         }
                     }
-                    else
+                    else if (Items[i].Quality < 50)
                     {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality += 1;
-                        }
+                        Items[i].Quality += 1;
                     }
                 }
             }
